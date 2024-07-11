@@ -1,0 +1,32 @@
+{
+    "name": "SQL_RAG_Project",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "service": "rag-development",
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/workspace",
+    "portsAttributes": {
+        "8501": {
+            "label": "Streamlit Port",
+            "onAutoForward": "notify"
+        },
+        "3306": {
+            "label": "Database Port",
+            "onAutoForward": "notify"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-toolsai.jupyter",
+                "mechatroner.rainbow-csv",
+                "bajdzis.vscode-database"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python"
+            }
+        }
+    }
+}

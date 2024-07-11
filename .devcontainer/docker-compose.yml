@@ -1,0 +1,22 @@
+services:
+  rag-development:
+    build:
+      context: .
+      dockerfile: development.Dockerfile
+    container_name: rag-development
+    hostname: rag-dev-container
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    env_file:
+      - .env
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - ../scripts/ChinookMySql.sql:/docker-entrypoint-initdb.d/ChinookMySql.sql
